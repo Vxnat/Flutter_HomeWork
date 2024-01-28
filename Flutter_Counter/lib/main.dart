@@ -37,8 +37,8 @@ class _CouterPageState extends State<CouterPage> {
           leading: CircleAvatar(
             backgroundImage: Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuL7fe6cxzBvmxrHOx5mCEnzlA9a-36_QQLnrzs7-MaMZ4_bMt3A2W_iVrrw&s')
-                .image, // Đường dẫn đến ảnh của bạn
-            radius: 20, // Điều chỉnh kích thước bán kính của ảnh
+                .image,
+            radius: 20,
           ),
           title: const Text(
             'MyObject App',
