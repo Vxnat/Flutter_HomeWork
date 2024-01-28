@@ -26,7 +26,7 @@ class CouterPage extends StatefulWidget {
 
 class _CouterPageState extends State<CouterPage> {
   MyObject myObject = MyObject(0);
-  int n = 0;
+  int? n;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,7 +59,9 @@ class _CouterPageState extends State<CouterPage> {
                     decoration:
                         const InputDecoration(hintText: 'Nhập số nguyên n'),
                     onChanged: (value) {
-                      n = int.parse(value);
+                      setState(() {
+                        n = value.isNotEmpty ? int.tryParse(value) ?? 0 : null;
+                      });
                     },
                   ),
                 )),
@@ -144,16 +146,16 @@ class _CouterPageState extends State<CouterPage> {
                             borderRadius: BorderRadius.circular(5))),
                     onPressed: () {
                       setState(() {
-                        myObject.power(n);
+                        myObject.power(n ?? 0);
                       });
                     },
                     icon: const Icon(
                       Icons.expand_less,
                       color: Colors.white,
                     ),
-                    label: const Text(
-                      'Lũy thừa bậc n',
-                      style: TextStyle(color: Colors.white),
+                    label: Text(
+                      'Lũy thừa bậc ${n ?? 'n'}',
+                      style: const TextStyle(color: Colors.white),
                     ))
               ],
             )
