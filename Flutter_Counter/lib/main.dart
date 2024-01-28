@@ -26,7 +26,7 @@ class CouterPage extends StatefulWidget {
 
 class _CouterPageState extends State<CouterPage> {
   MyObject myObject = MyObject(0);
-  int n = 0;
+  int? n;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -138,7 +138,7 @@ class _CouterPageState extends State<CouterPage> {
                             borderRadius: BorderRadius.circular(5))),
                     onPressed: () {
                       setState(() {
-                        myObject.power(n);
+                        myObject.power(n ?? 0);
                       });
                     },
                     icon: const Icon(
