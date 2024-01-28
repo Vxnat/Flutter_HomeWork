@@ -26,7 +26,7 @@ class CouterPage extends StatefulWidget {
 
 class _CouterPageState extends State<CouterPage> {
   MyObject myObject = MyObject(0);
-  int? n;
+  int n = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,6 +34,12 @@ class _CouterPageState extends State<CouterPage> {
           child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 96, 241, 222),
         appBar: AppBar(
+          leading: CircleAvatar(
+            backgroundImage: Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuL7fe6cxzBvmxrHOx5mCEnzlA9a-36_QQLnrzs7-MaMZ4_bMt3A2W_iVrrw&s')
+                .image, // Đường dẫn đến ảnh của bạn
+            radius: 20, // Điều chỉnh kích thước bán kính của ảnh
+          ),
           title: const Text(
             'MyObject App',
             style: TextStyle(color: Color.fromARGB(255, 50, 50, 50)),
@@ -138,7 +144,7 @@ class _CouterPageState extends State<CouterPage> {
                             borderRadius: BorderRadius.circular(5))),
                     onPressed: () {
                       setState(() {
-                        myObject.power(n ?? 0);
+                        myObject.power(n);
                       });
                     },
                     icon: const Icon(
